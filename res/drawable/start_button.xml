@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- ディセーブル時 -->
+    <item android:state_enabled="false"><layer-list>
+            <item><shape>
+                    <stroke android:width="1dp" android:color="@color/dark" />
+
+                    <corners android:radius="5dp" />
+
+                    <gradient android:angle="270" android:endColor="@color/lite_dark" android:startColor="@color/dark" android:type="linear" />
+                </shape></item>
+            <item android:top="40dp"><shape android:shape="rectangle">
+                    <solid android:color="#10000000" />
+                </shape></item>
+        </layer-list></item>
+    <!-- 押された状態 -->
+    <item android:state_pressed="true"><layer-list>
+            <item><shape>
+                    <stroke android:width="1dp" android:color="@color/dark" />
+
+                    <corners android:radius="5dp" />
+
+                    <gradient android:angle="270" android:endColor="@color/light" android:startColor="@color/lite_dark" android:type="linear" />
+                </shape></item>
+            <item android:top="40dp"><shape android:shape="rectangle">
+                    <solid android:color="#10000000" />
+                </shape></item>
+        </layer-list></item>
+    <!-- 普通の状態 -->
+    <item><layer-list>
+            <item><shape>
+                    <stroke android:width="1dp" android:color="@color/dark" />
+
+                    <corners android:radius="5dp" />
+
+                    <gradient android:angle="270" android:endColor="#FFFFFF" android:startColor="@color/light" android:type="linear" />
+                </shape></item>
+            <item android:top="40dp"><shape android:shape="rectangle">
+                    <solid android:color="#10000000" />
+                </shape></item>
+        </layer-list></item>
+
+</selector>
