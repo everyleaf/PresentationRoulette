@@ -16,7 +16,7 @@ public class PresentationRouletteActivity extends Activity {
 	private final String TAG = this.getClass().getSimpleName();
 
 	private String[] TEXTS = { "Red", "Green", "Blue", "Purple", "Yellow" };
-	private ArrayList<String> texts = new ArrayList<String>();
+	private ArrayList<String> current_texts = new ArrayList<String>();
 	private ArrayList<String> finished_texts = new ArrayList<String>();
 
 	@Override
@@ -42,17 +42,17 @@ public class PresentationRouletteActivity extends Activity {
 	}
 
 	public void go(View view) {
-		if (texts.isEmpty()) {
+		if (current_texts.isEmpty()) {
 			initializeKujibiki();
 		}
 		rouletteResultText();
 	}
 
 	private void updateResultText() {
-		String result = texts.get(getRandomizeInt(texts.size()));
+		String result = current_texts.get(getRandomizeInt(current_texts.size()));
 		TextView text = (TextView) findViewById(R.id.result_text);
 		text.setText(result);
-		finished_texts.add(texts.remove(texts.indexOf(result)));
+		finished_texts.add(current_texts.remove(current_texts.indexOf(result)));
 	}
 
 	private void enableButtons(boolean enable) {
@@ -92,7 +92,7 @@ public class PresentationRouletteActivity extends Activity {
 			@Override
 			protected void onProgressUpdate(Integer... values) {
 				TextView text = (TextView) findViewById(R.id.result_text);
-				text.setText(texts.get(values[0] % texts.size()));
+				text.setText(current_texts.get(values[0] % current_texts.size()));
 			}
 
 			@Override
@@ -125,9 +125,9 @@ public class PresentationRouletteActivity extends Activity {
 	}
 
 	private void prepareTexts() {
-		texts.clear();
+		current_texts.clear();
 		for (String str : TEXTS) {
-			texts.add(str);
+			current_texts.add(str);
 		}
 		finished_texts.clear();
 	}
@@ -143,9 +143,9 @@ public class PresentationRouletteActivity extends Activity {
 		text.setText(strings);
 
 		// TODO: リファクタリング
-		if (texts.size() == 1) {
-			String result = texts.get(getRandomizeInt(texts.size()));
-			finished_texts.add(texts.remove(texts.indexOf(result)));
+		if (current_texts.size() == 1) {
+			String result = current_texts.get(getRandomizeInt(current_texts.size()));
+			finished_texts.add(current_texts.remove(current_texts.indexOf(result)));
 			updateFinishedTexts();
 		}
 	}
