@@ -49,7 +49,8 @@ public class PresentationRouletteActivity extends Activity {
 	}
 
 	private void updateResultText() {
-		String result = current_texts.get(getRandomizeInt(current_texts.size()));
+		String result = current_texts
+				.get(getRandomizeInt(current_texts.size()));
 		TextView text = (TextView) findViewById(R.id.result_text);
 		text.setText(result);
 		finished_texts.add(current_texts.remove(current_texts.indexOf(result)));
@@ -142,10 +143,12 @@ public class PresentationRouletteActivity extends Activity {
 		TextView text = (TextView) findViewById(R.id.finished_texts);
 		text.setText(strings);
 
-		// TODO: リファクタリング
+		// TODO: 繝ｪ繝輔ぃ繧ｯ繧ｿ繝ｪ繝ｳ繧ｰ
 		if (current_texts.size() == 1) {
-			String result = current_texts.get(getRandomizeInt(current_texts.size()));
-			finished_texts.add(current_texts.remove(current_texts.indexOf(result)));
+			String result = current_texts.get(getRandomizeInt(current_texts
+					.size()));
+			finished_texts.add(current_texts.remove(current_texts
+					.indexOf(result)));
 			updateFinishedTexts();
 		}
 	}
