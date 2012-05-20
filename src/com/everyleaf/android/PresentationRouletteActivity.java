@@ -101,6 +101,12 @@ public class PresentationRouletteActivity extends Activity {
 				updateResultText();
 				updateFinishedTexts();
 				enableButtons(true);
+				// TODO: リファクタリング
+				if (current_texts.size() == 0) {
+					Button button = null;
+					button = (Button) findViewById(R.id.go);
+					button.setEnabled(false);
+				}
 			}
 		}.execute(new String[] {});
 	}
