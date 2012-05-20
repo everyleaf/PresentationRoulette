@@ -162,5 +162,9 @@ public class PresentationRouletteActivity extends Activity {
 	public void reset(View view) {
 		prepareTexts();
 		resetFields();
+		enableButtons(true);
+		TextView text = (TextView) findViewById(R.id.result_text);
+		text.setText("");
+		text.setText(this.getResources().getString(R.string.hello));
 	}
 }
