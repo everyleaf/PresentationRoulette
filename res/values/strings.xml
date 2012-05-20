@@ -3,6 +3,7 @@
 
     <string name="hello">Welcom to Presentation Roulette</string>
     <string name="app_name">Presentation Roulette</string>
+    <string name="app_label">Prette</string>
     <string name="go">START</string>
     <string name="reset">RESET</string>
 
