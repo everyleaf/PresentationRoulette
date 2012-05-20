@@ -47,4 +47,10 @@
         android:onClick="reset"
         android:text="@string/reset" />
 
+	<LinearLayout
+        android:id="@+id/booter"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/footer_background" />
+
 </LinearLayout>
